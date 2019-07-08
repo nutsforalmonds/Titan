@@ -17,11 +17,13 @@ public class PlayerGroundMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        var y = Input.GetAxisRaw("FlightAscend") - Input.GetAxisRaw("FlightDescend");
-        var targetVelocity = new Vector3(Input.GetAxis("HorizontalMovement"), y, Input.GetAxis("VerticalMovement"));
+        var targetVelocity = new Vector3(Input.GetAxis("HorizontalMovement"), 0.0f, Input.GetAxis("VerticalMovement"));
         targetVelocity = Vector3.ClampMagnitude(targetVelocity, 1.0f);
         targetVelocity = _directionTransform.TransformDirection(targetVelocity);
-        targetVelocity *= _runSpeed * Time.fixedDeltaTime;
+
+        var speed = Mathf.Lerp(_runSpeed, _boostSpeed, Input.GetAxis("Sprint"));
+
+        targetVelocity *= speed * Time.fixedDeltaTime;
 
         _playerVelocity.SetInputVelocity(targetVelocity);
     }

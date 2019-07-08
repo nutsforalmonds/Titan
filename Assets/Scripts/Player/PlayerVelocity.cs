@@ -18,10 +18,19 @@ public class PlayerVelocity : MonoBehaviour {
         _rigidbody.freezeRotation = true;
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            _rigidbody.velocity += new Vector3(0, 0, 20);
+        }
+    }
+
     public void SetInputVelocity(Vector3 newInputVelocity) {
         _rigidbody.velocity -= _inputVelocity;
         _inputVelocity = newInputVelocity;
         _rigidbody.velocity += _inputVelocity;
+        if (_rigidbody.velocity.sqrMagnitude < _inputVelocity.sqrMagnitude) {
+            _rigidbody.velocity = _inputVelocity;
+        }
     }
 
     public void ModifyForcedVelocity(Vector3 modifier) {
