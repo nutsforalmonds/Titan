@@ -15,7 +15,7 @@ public class RopeCollidePoint : MonoBehaviour {
 
 
     private bool _collided = false;
-    private Vector3 _collideFreeDirection;
+    private Vector3 _directionToFree;
     private Vector3 _rayDirection;
 
 
@@ -42,7 +42,7 @@ public class RopeCollidePoint : MonoBehaviour {
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + _collideFreeDirection);
+        Gizmos.DrawLine(transform.position, transform.position + _directionToFree);
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + _rayDirection);
@@ -91,12 +91,10 @@ public class RopeCollidePoint : MonoBehaviour {
     }
 
     private void Collided(RaycastHit hit) {
-        print(gameObject.name + " Collided: " + hit.collider.gameObject.name);
-
         _collided = true;
         var rayDirection = hit.point - transform.position;
-        var normalUpVector = Vector3.Cross(rayDirection, hit.normal);
-        _collideFreeDirection = Vector3.Cross(normalUpVector, rayDirection);
+        var orthogonalToNormal = Vector3.Cross(rayDirection, hit.normal);
+        _directionToFree = Vector3.Cross(orthogonalToNormal, rayDirection);
 
         var _collideDirectionReflected = Vector3.Reflect((hit.point - transform.position).normalized, hit.normal);
         var newPos = hit.point + _collideDirectionReflected * _reflectionDistance;
@@ -120,7 +118,6 @@ public class RopeCollidePoint : MonoBehaviour {
     }
 
     private void Freed() {
-        print(gameObject.name + " Freed: " + _spring.connectedBody.gameObject.name);
         if (_spring.connectedBody == null) {
             return;
         }
@@ -151,12 +148,10 @@ public class RopeCollidePoint : MonoBehaviour {
 
 
     private void OnCollided(Rigidbody point) {
-        print(gameObject.name + " Collide Revieved VS: " + point.gameObject.name);
         _objectToFree = point;
     }
 
     private void OnFreed(RopeCollidePoint destroyed) {
-        print(gameObject.name + " Freed Received VS: " + destroyed.gameObject.name);
         _objectToFree = destroyed._spring.connectedBody;
     }
 
@@ -165,7 +160,7 @@ public class RopeCollidePoint : MonoBehaviour {
             _rayDirection = _objectToFree.transform.position - transform.position;
             RaycastHit hit;
             if (!Physics.Linecast(transform.position, _objectToFree.transform.position, out hit, ~_layersToIgnore)) {
-                if (Vector3.Dot(_rayDirection, _collideFreeDirection) >= 0.0f) {
+                if (Vector3.Dot(_rayDirection, _directionToFree) >= 0.0f) {
                     Freed();
                     return true;
                 }

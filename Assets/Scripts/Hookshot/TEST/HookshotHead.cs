@@ -6,7 +6,6 @@ using UnityEngine;
 public class HookshotHead : MonoBehaviour {
     private void OnCollisionEnter(Collision other) {
         var rb = GetComponent<Rigidbody>();
-        rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
         GetComponent<Rigidbody>().isKinematic = true;
     }
 
