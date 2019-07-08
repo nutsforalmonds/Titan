@@ -12,7 +12,7 @@ public class Tethering : MonoBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (Vector3.Distance(transform.position, _tetherPoint.position) > _tetherLength) {
             transform.position = (transform.position - _tetherPoint.position).normalized * _tetherLength;
         }

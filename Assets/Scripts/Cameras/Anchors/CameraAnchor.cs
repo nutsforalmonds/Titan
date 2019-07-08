@@ -20,7 +20,7 @@ public class CameraAnchor : MonoBehaviour {
         _desiredRotation.transform.parent = null;
     }
 
-    protected virtual void FixedUpdate() {
+    protected virtual void Update() {
         SetDesiredRotation();
         SetDesiredPosition();
     }

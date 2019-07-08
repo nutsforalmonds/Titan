@@ -2,36 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerVelocity), typeof(PlayerBoost))]
 public class PlayerAirMovement : MonoBehaviour {
-    [SerializeField] float _speed = 1.5f;
+    [SerializeField] float _sprintSpeed = 9.0f;
 
-    private Vector3 _sqrLiftoffVelocity;
+    private PlayerVelocity _playerVelocity;
+    private PlayerBoost _playerBoost;
 
-    private Rigidbody _rigidbody;
 
     private void Awake() {
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.freezeRotation = true;
+        _playerVelocity = GetComponent<PlayerVelocity>();
+        _playerBoost = GetComponent<PlayerBoost>();
     }
 
-    void FixedUpdate() {
-        var targetVelocity = new Vector3(Input.GetAxis("HorizontalMovement"), 0.0f, Input.GetAxis("VerticalMovement"));
-        targetVelocity = Vector3.ClampMagnitude(targetVelocity, 1.0f);
-        targetVelocity = transform.TransformDirection(targetVelocity);
-        targetVelocity *= _speed;
-
-        var velocity = _rigidbody.velocity;
-        var airVelocityChange = targetVelocity - velocity;
-        airVelocityChange.y = 0.0f;
-        var targetVelocityChange = airVelocityChange * _speed;
-        _rigidbody.AddForce(targetVelocityChange);
+    void Update() {
+        // Not yet implemented
     }
 
     public void Enable() {
         enabled = true;
-        _sqrLiftoffVelocity = _rigidbody.velocity;
-        _sqrLiftoffVelocity.y = 0.0f;
     }
 
     public void Disable() {

@@ -14,7 +14,7 @@ public class CharacterJumpFall : MonoBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         var force = Vector3.zero;
         if (_rigidbody.velocity.y < 0.0f) {
             force = Physics.gravity * (_fallModifier - 1) * Time.fixedDeltaTime;
