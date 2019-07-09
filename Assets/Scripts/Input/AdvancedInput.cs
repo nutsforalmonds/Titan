@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class AdvancedInput : MonoBehaviour {
-    [SerializeField] string _inputName;
+    [SerializeField] string _inputName = "";
 
     [SerializeField] float _singleTapCooldownDuration = 0.0f;
 

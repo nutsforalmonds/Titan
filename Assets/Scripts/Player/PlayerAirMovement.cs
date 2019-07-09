@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerVelocity), typeof(PlayerBoost), typeof(GroundedTester))]
 public class PlayerAirMovement : MonoBehaviour {
     [SerializeField] float _boostSpeed = 450.0f;
-    [SerializeField] Transform _directionTransform;
+    [SerializeField] Transform _directionTransform = null;
 
     private Rigidbody _rigidbody;
     private GroundedTester _groundedTester;
