@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,6 +12,8 @@ public class PlayerVelocity : MonoBehaviour {
     public Vector3 ForcedVelocity { get { return _rigidbody.velocity - _inputVelocity; } }
 
     public Vector3 Velocity { get { return _rigidbody.velocity; } }
+
+    private List<IVelocityAppliable> _additionalVelocities = new List<IVelocityAppliable>();
 
 
     private Rigidbody _rigidbody;
@@ -42,6 +45,16 @@ public class PlayerVelocity : MonoBehaviour {
 
     public void AddForcedVelocity(Vector3 modifier) {
         _rigidbody.velocity += modifier;
+    }
+
+    public void AddAdditionalVelocity(IVelocityAppliable additionalVelocity) {
+        _rigidbody.velocity += additionalVelocity.CurrentVelocity();
+        _additionalVelocities.Add(additionalVelocity);
+        additionalVelocity.GetVelocityChangedEvent().DynamicCalls += OnVelocityChanged;
+    }
+
+    private void OnVelocityChanged(Vector3 velocityChange) {
+        _rigidbody.velocity += velocityChange;
     }
 
     public void Enable() {

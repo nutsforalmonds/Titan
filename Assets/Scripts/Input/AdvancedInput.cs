@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using RotaryHeart.Lib.SerializableDictionary;
+using UnityEngine;
 
+[System.Serializable]
 public class AdvancedInput : MonoBehaviour {
     [SerializeField] string _inputName = "";
 
@@ -73,6 +75,10 @@ public class AdvancedInput : MonoBehaviour {
         if (_singleTapOnCooldown) {
             _elapsedSingleTapCooldownTime += Time.deltaTime;
         }
+    }
+
+    public void SetInputName(string newName) {
+        _inputName = newName;
     }
 
     public void Enable() {
