@@ -4,7 +4,7 @@ using RotaryHeart.Lib.SerializableDictionary;
 
 public class JetpackFlameDisplay : MonoBehaviour {
     public enum FlameDirection { Forward, Up, Left, Right }
-    [SerializeField] JetpackFlameDisplayDictionary _flameModels;
+    [SerializeField] JetpackFlameDisplayDictionary _flameModels = null;
 
     private List<FlameDirection> _currentDirections = new List<FlameDirection>();
 

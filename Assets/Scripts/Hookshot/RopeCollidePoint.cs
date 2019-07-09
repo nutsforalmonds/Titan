@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpringJoint))]
 public class RopeCollidePoint : MonoBehaviour {
     [SerializeField] float _reflectionDistance = 0.3f;
-    [SerializeField] RopeCollidePoint _collidePartGO;
-    [SerializeField] LayerMask _layersToIgnore;
+    [SerializeField] RopeCollidePoint _collidePartGO = null;
+    [SerializeField] LayerMask _layersToIgnore = 0;
     [SerializeField] float _minDistance = 0.2f;
 
     private SpringJoint _spring;

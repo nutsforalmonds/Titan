@@ -114,7 +114,7 @@ SpringJoint:
   m_Spring: 100
   m_Damper: 50
   m_MinDistance: 0.1
-  m_MaxDistance: 40
+  m_MaxDistance: 60
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea9666ca141d2f4f8d369c7a70aa3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _reelRate: 20
 --- !u!135 &5291641142455430203
 SphereCollider:
   m_ObjectHideFlags: 0

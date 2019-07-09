@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Force : MonoBehaviour
-{
-    [SerializeField] Vector3 _direction;
+public class Force : MonoBehaviour {
+    [SerializeField] Vector3 _direction = Vector3.zero;
 
     private Rigidbody _rigidbody;
 

@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HookShooterTEST : MonoBehaviour {
-    [SerializeField] Rigidbody _player;
-    [SerializeField] HookshotHead _shotPrefab;
+public class HookShooter : MonoBehaviour {
+    [SerializeField] Rigidbody _player = null;
+    [SerializeField] HookshotHead _shotPrefab = null;
 
     [SerializeField] float _startingReelRate = 15.0f;
     [SerializeField] float _reelAcceleration = 6.0f;
 
-    [SerializeField] AdvancedInput _fireInput;
+    [SerializeField] AdvancedInput _fireInput = null;
 
     private HookshotHead _shot;
-    private float _currentReelAcceleration = 0.0f;
     private float _currentReelSpeed = 0.0f;
-
 
     private void Awake() {
         var inputGO = GameObject.Instantiate(_fireInput);
