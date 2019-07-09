@@ -927,6 +927,7 @@ GameObject:
   - component: {fileID: 6074039439530354459}
   - component: {fileID: 1728709581062792069}
   - component: {fileID: 2914419864612163409}
+  - component: {fileID: 1142756769297271541}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -1001,7 +1002,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305765006027334640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 581c3eec5e8328345ae57b87af9ebfa0, type: 3}
   m_Name: 
@@ -1032,7 +1033,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305765006027334640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31ea501c7220178458f1510cc300903c, type: 3}
   m_Name: 
@@ -1050,6 +1051,9 @@ MonoBehaviour:
     - _Target: {fileID: 2914419864612163409}
       _MethodName: Enable
       _PersistentArguments: []
+    - _Target: {fileID: 1142756769297271541}
+      _MethodName: Disable
+      _PersistentArguments: []
   leftGround:
     _PersistentCalls:
     - _Target: {fileID: 1728709581062792069}
@@ -1057,6 +1061,9 @@ MonoBehaviour:
       _PersistentArguments: []
     - _Target: {fileID: 2914419864612163409}
       _MethodName: Disable
+      _PersistentArguments: []
+    - _Target: {fileID: 1142756769297271541}
+      _MethodName: Enable
       _PersistentArguments: []
 --- !u!114 &1728709581062792069
 MonoBehaviour:
@@ -1087,6 +1094,20 @@ MonoBehaviour:
   _jumpHeightVelocity: 5
   jumped:
     _PersistentCalls: []
+--- !u!114 &1142756769297271541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305765006027334640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08d846138508d248b744e9484f034c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boostSpeed: 450
+  _directionTransform: {fileID: 9001081777011306284}
 --- !u!1 &8336029332495245188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1322,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4714859422578574809}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &8557670622750972655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4011721819373248310, guid: 1804e40c95688344f8454bd164a9b8c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4714859422578574809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9001081777011306284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4432896106089884405, guid: 1804e40c95688344f8454bd164a9b8c7,
@@ -1310,12 +1337,6 @@ Transform:
 --- !u!1 &6921452883184314669 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2405901951095991540, guid: 1804e40c95688344f8454bd164a9b8c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4714859422578574809}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8557670622750972655 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4011721819373248310, guid: 1804e40c95688344f8454bd164a9b8c7,
     type: 3}
   m_PrefabInstance: {fileID: 4714859422578574809}
   m_PrefabAsset: {fileID: 0}
