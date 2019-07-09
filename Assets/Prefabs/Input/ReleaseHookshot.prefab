@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8431742081841489980}
   - component: {fileID: 8063906738675166174}
   m_Layer: 12
-  m_Name: FireHookshot
+  m_Name: ReleaseHookshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68fa377fcbf27b48a09ce0e2ab44054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputName: Fire
+  _inputName: Release
   _heldCooldownDuration: 0
   _singleTapCooldownDuration: 0
   _doubleTapDuration: 0

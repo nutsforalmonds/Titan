@@ -216,11 +216,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5203193816893779325, guid: a676fd7c83352f445920e5bab081ef63,
         type: 3}
-    - target: {fileID: 7844123364017496449, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1397877741}
     - target: {fileID: 1728709581062792069, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
       propertyPath: _reactivityPercent
@@ -772,12 +767,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380930235}
   m_CullTransparentMesh: 0
---- !u!54 &1397877741 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 655735902797321937, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-    type: 3}
-  m_PrefabInstance: {fileID: 144839600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1490290984
 GameObject:
   m_ObjectHideFlags: 0
