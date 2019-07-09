@@ -2,6 +2,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerVelocity : MonoBehaviour {
+    [SerializeField] float _inputMultiplierAgainstForced = 1.0f;
+
     private Vector3 _inputVelocity = Vector3.zero;
     public Vector3 InputVelocity { get { return _inputVelocity; } }
 
@@ -21,17 +23,20 @@ public class PlayerVelocity : MonoBehaviour {
 
     private void Update() {
         __forcedVelocity = ForcedVelocity; // for display in the inspector. Remove for release
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            _rigidbody.velocity += new Vector3(0, 0, 20);
-        }
     }
 
-    public void SetInputVelocity(Vector3 newInputVelocity) {
+    public void SetInputVelocity(Vector3 newInputVelocity, float delta) {
         _rigidbody.velocity -= _inputVelocity;
         _inputVelocity = newInputVelocity;
         _rigidbody.velocity += _inputVelocity;
-        if (_rigidbody.velocity.sqrMagnitude < _inputVelocity.sqrMagnitude) {
-            _rigidbody.velocity = _inputVelocity;
+        if (_rigidbody.velocity.y == 0 && _rigidbody.velocity.sqrMagnitude < _inputVelocity.sqrMagnitude) {
+            var newVelocity = _inputVelocity;
+            newVelocity.y = _rigidbody.velocity.y;
+            _rigidbody.velocity = newVelocity;
+        }
+        if (Vector3.Dot(_inputVelocity, ForcedVelocity) < 0) {
+            var speedDecreaseVector = Vector3.Project(_inputVelocity, -ForcedVelocity) * _inputMultiplierAgainstForced * delta;
+            _rigidbody.velocity += speedDecreaseVector;
         }
     }
 

@@ -926,7 +926,8 @@ GameObject:
   - component: {fileID: 3783736405293064744}
   - component: {fileID: 6074039439530354459}
   - component: {fileID: 1728709581062792069}
-  - component: {fileID: 2914419864612163409}
+  - component: {fileID: 5508261502970461755}
+  - component: {fileID: 9131658001959374735}
   - component: {fileID: 1142756769297271541}
   m_Layer: 12
   m_Name: Player
@@ -995,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060c8634092f709449ee505b53366946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputMultiplierAgainstForced: 1
 --- !u!114 &750902244795203813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,9 +1010,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostStarted:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 9131658001959374735}
+      _MethodName: Disable
+      _PersistentArguments: []
   boostEnded:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 655735902797321937}
+      _MethodName: set_useGravity
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
 --- !u!114 &3783736405293064744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,8 +1064,11 @@ MonoBehaviour:
     - _Target: {fileID: 1728709581062792069}
       _MethodName: Enable
       _PersistentArguments: []
-    - _Target: {fileID: 2914419864612163409}
+    - _Target: {fileID: 5508261502970461755}
       _MethodName: Enable
+      _PersistentArguments: []
+    - _Target: {fileID: 9131658001959374735}
+      _MethodName: Disable
       _PersistentArguments: []
     - _Target: {fileID: 1142756769297271541}
       _MethodName: Disable
@@ -1059,7 +1078,7 @@ MonoBehaviour:
     - _Target: {fileID: 1728709581062792069}
       _MethodName: Disable
       _PersistentArguments: []
-    - _Target: {fileID: 2914419864612163409}
+    - _Target: {fileID: 5508261502970461755}
       _MethodName: Disable
       _PersistentArguments: []
     - _Target: {fileID: 1142756769297271541}
@@ -1079,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runSpeed: 250
   _boostSpeed: 450
---- !u!114 &2914419864612163409
+--- !u!114 &5508261502970461755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1092,7 +1111,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpHeightVelocity: 5
-  jumped:
+  jumpedRunning:
+    _PersistentCalls:
+    - _Target: {fileID: 9131658001959374735}
+      _MethodName: Enable
+      _PersistentArguments: []
+  jumpedBoosting:
+    _PersistentCalls: []
+--- !u!114 &9131658001959374735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305765006027334640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596dc043c2835f74abab29dd6b221278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallMultiplier: 2.5
+  _lowJumpMultiplier: 2
+  apexReached:
     _PersistentCalls: []
 --- !u!114 &1142756769297271541
 MonoBehaviour:
@@ -1316,15 +1356,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1804e40c95688344f8454bd164a9b8c7, type: 3}
---- !u!4 &8557670622809344169 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4011721819180223856, guid: 1804e40c95688344f8454bd164a9b8c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4714859422578574809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8557670622750972655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4011721819373248310, guid: 1804e40c95688344f8454bd164a9b8c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4714859422578574809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8557670622809344169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4011721819180223856, guid: 1804e40c95688344f8454bd164a9b8c7,
     type: 3}
   m_PrefabInstance: {fileID: 4714859422578574809}
   m_PrefabAsset: {fileID: 0}

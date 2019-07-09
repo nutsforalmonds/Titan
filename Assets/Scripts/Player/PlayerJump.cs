@@ -1,25 +1,30 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(PlayerVelocity), typeof(PlayerBoost))]
-public class PlayerGroundJump : MonoBehaviour {
+public class PlayerJump : MonoBehaviour {
     [SerializeField] float _jumpHeightVelocity = 5.0f;
 
-    private PlayerVelocity _playerVelocity;
     private PlayerBoost _playerBoost;
+    private PlayerVelocity _playerVelocity;
 
-    public UltEvents.UltEvent jumped;
+    public UltEvents.UltEvent jumpedRunning;
+    public UltEvents.UltEvent jumpedBoosting;
 
 
     private void Awake() {
-        _playerVelocity = GetComponent<PlayerVelocity>();
         _playerBoost = GetComponent<PlayerBoost>();
+        _playerVelocity = GetComponent<PlayerVelocity>();
     }
 
     private void Update() {
         if (Input.GetButtonDown("Jump")) {
             var force = Vector3.up * _jumpHeightVelocity;
             _playerVelocity.AddForcedVelocity(force);
-            jumped.Invoke();
+            if (_playerBoost.Boosting) {
+                jumpedBoosting.Invoke();
+            } else {
+                jumpedRunning.Invoke();
+            }
         }
     }
 

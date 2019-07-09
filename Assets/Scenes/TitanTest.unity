@@ -290,61 +290,37 @@ PrefabInstance:
     - target: {fileID: 655735902797321937, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
       propertyPath: m_Drag
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5516896947646385434, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
       propertyPath: _ghost
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 750902244795203813, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
+    - target: {fileID: 5516896947646385434, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: _inputMultiplierAgainstForced
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914419864612163409, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
+        type: 3}
+      propertyPath: jumped._PersistentCalls.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: grounded._PersistentCalls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: leftGround._PersistentCalls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: grounded._PersistentCalls.Array.data[1]._Target
-      value: 
-      objectReference: {fileID: 1900301349}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: grounded._PersistentCalls.Array.data[1]._MethodName
-      value: Enable
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: leftGround._PersistentCalls.Array.data[1]._Target
-      value: 
-      objectReference: {fileID: 1900301349}
-    - target: {fileID: 6074039439530354459, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: leftGround._PersistentCalls.Array.data[1]._MethodName
-      value: Disable
       objectReference: {fileID: 0}
     - target: {fileID: 2914419864612163409, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7154307502146912286, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
+        type: 3}
+      propertyPath: apexReached._PersistentCalls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2726412783007376339, guid: ce9157fe3ff3b9f4db67d2eba32d132b, type: 3}
     - {fileID: 7204226237878392541, guid: ce9157fe3ff3b9f4db67d2eba32d132b, type: 3}
+    - {fileID: 7154307502146912286, guid: ce9157fe3ff3b9f4db67d2eba32d132b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce9157fe3ff3b9f4db67d2eba32d132b, type: 3}
 --- !u!1 &437960447
 GameObject:
@@ -989,18 +965,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5812cda01f28a394585a18c4d1874e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1900301349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2914419864612163409, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-    type: 3}
-  m_PrefabInstance: {fileID: 144839600}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c248ef9cd4ebaa429c9a3ebd1d8d71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1219134338958947335
