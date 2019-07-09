@@ -9,6 +9,9 @@ public class HookShooter : MonoBehaviour {
     [SerializeField] float _startingReelRate = 15.0f;
     [SerializeField] float _reelAcceleration = 6.0f;
 
+    [SerializeField] float _boostedStartingReelRate = 30.0f;
+    [SerializeField] float _boostedReelAcceleration = 16.0f;
+
     [SerializeField] AdvancedInput _fireInputGO = null;
     [SerializeField] AdvancedInput _reelInputGO = null;
     [SerializeField] AdvancedInput _releaseInputGO = null;
@@ -24,6 +27,15 @@ public class HookShooter : MonoBehaviour {
     private bool _canFire = true;
     private bool _canReel = false;
     private bool _canRelease = false;
+
+    private bool _isBoosting = false;
+    public bool IsBoosting {
+        get { return _isBoosting; }
+        set { _isBoosting = value; }
+    }
+
+    private bool _reelStarted = true;
+    public UltEvents.UltEvent reelingStarted;
 
     private void Awake() {
         _fireInput = GameObject.Instantiate(_fireInputGO);
@@ -42,13 +54,19 @@ public class HookShooter : MonoBehaviour {
     private void Update() {
         if (_canReel && _reelInput.Held && _shot != null) {
             if (_shot.Attached) {
-                _currentReelSpeed += _reelAcceleration * Time.deltaTime;
+                if (_reelStarted) {
+                    _reelStarted = false;
+                    reelingStarted.Invoke();
+                }
+                var acceleraction = _isBoosting ? _boostedReelAcceleration : _reelAcceleration;
+                _currentReelSpeed += acceleraction * Time.deltaTime;
                 _shot.Reel(_currentReelSpeed, Time.deltaTime);
             } else {
                 DestroyShot();
             }
         } else {
-            _currentReelSpeed = _startingReelRate;
+            _reelStarted = true;
+            _currentReelSpeed = _isBoosting ? _boostedStartingReelRate : _startingReelRate;
         }
     }
 

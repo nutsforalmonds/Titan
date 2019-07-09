@@ -277,26 +277,6 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModifications.Array.data[3]
       value: '"path":"_flameModels.{3es}","value":$eref:3'
       objectReference: {fileID: 0}
-    - target: {fileID: 655735902797321937, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 655735902797321937, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5516896947646385434, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: _ghost
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5516896947646385434, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
-        type: 3}
-      propertyPath: _inputMultiplierAgainstForced
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2914419864612163409, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
         type: 3}
       propertyPath: jumped._PersistentCalls.Array.size
@@ -311,6 +291,16 @@ PrefabInstance:
         type: 3}
       propertyPath: apexReached._PersistentCalls.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189032654406118586, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
+        type: 3}
+      propertyPath: _directions.isExpanded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189032654406118586, guid: ce9157fe3ff3b9f4db67d2eba32d132b,
+        type: 3}
+      propertyPath: _directions.reorderableList.isExpanded
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2726412783007376339, guid: ce9157fe3ff3b9f4db67d2eba32d132b, type: 3}
@@ -572,7 +562,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5, y: 1.5e-44, z: 0, w: 1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1037,6 +1027,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FollowCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 2898726644252121142, guid: 7330ea88b97e6ac48bff39d11174cd91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898726644252121142, guid: 7330ea88b97e6ac48bff39d11174cd91,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 1556226465791810429, guid: 7330ea88b97e6ac48bff39d11174cd91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1101,6 +1101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Depth
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265160831364821213, guid: 7330ea88b97e6ac48bff39d11174cd91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7330ea88b97e6ac48bff39d11174cd91, type: 3}
