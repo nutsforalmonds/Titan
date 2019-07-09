@@ -19,7 +19,7 @@ public class HookShooterTEST : MonoBehaviour {
     private void Awake() {
         var inputGO = GameObject.Instantiate(_fireInput);
         inputGO.transform.parent = transform;
-        inputGO.tapped.dynamicCalls += OnFired;
+        inputGO.tapped.DynamicCalls += OnFired;
     }
 
     private void Update() {
