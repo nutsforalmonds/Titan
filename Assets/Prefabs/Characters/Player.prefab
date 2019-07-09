@@ -877,7 +877,11 @@ MonoBehaviour:
     type: 3}
   _startingReelRate: 15
   _reelAcceleration: 10
-  _fireInput: {fileID: 8063906738675166174, guid: 0cd8bb07c045a2e4cb486ef9b8a2289c,
+  _fireInputGO: {fileID: 8063906738675166174, guid: 0cd8bb07c045a2e4cb486ef9b8a2289c,
+    type: 3}
+  _reelInputGO: {fileID: 8063906738675166174, guid: 5a185bae76c71c5438be276884309a9e,
+    type: 3}
+  _releaseInputGO: {fileID: 8063906738675166174, guid: e0db53c212979d14fac5f9ca6ac91c8f,
     type: 3}
 --- !u!1 &7310547755938596070
 GameObject:
