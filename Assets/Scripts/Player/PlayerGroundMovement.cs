@@ -24,7 +24,7 @@ public class PlayerGroundMovement : MonoBehaviour {
 
         targetVelocity *= speed * Time.fixedDeltaTime;
 
-        _playerVelocity.SetInputVelocity(targetVelocity);
+        _playerVelocity.SetInputVelocity(targetVelocity, Time.fixedDeltaTime);
     }
 
     public void Enable() {
