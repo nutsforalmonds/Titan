@@ -1,27 +1,27 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
+using RotaryHeart.Lib.SerializableDictionary;
 
-public class JetpackFlameDisplay : SerializedMonoBehaviour {
+public class JetpackFlameDisplay : MonoBehaviour {
     public enum FlameDirection { Forward, Up, Left, Right }
-    [SerializeField] Dictionary<FlameDirection, MeshRenderer> _flameModels;
+    [SerializeField] JetpackFlameDisplayDictionary _flameModels;
 
     private List<FlameDirection> _currentDirections = new List<FlameDirection>();
 
     private void Update() {
-        if (Input.GetButton("Sprint")) {
+        if (Input.GetButton("Boost")) {
             var directions = GetDirections();
             foreach (var direction in _currentDirections) {
-                _flameModels[direction].enabled = false;
+                _flameModels[direction].SetActive(false);
             }
 
             _currentDirections = directions;
             foreach (var direction in _currentDirections) {
-                _flameModels[direction].enabled = true;
+                _flameModels[direction].SetActive(true);
             }
         } else if (_currentDirections.Count > 0) {
             foreach (var direction in _currentDirections) {
-                _flameModels[direction].enabled = false;
+                _flameModels[direction].SetActive(false);
             }
             _currentDirections.Clear();
         }
@@ -43,4 +43,7 @@ public class JetpackFlameDisplay : SerializedMonoBehaviour {
         }
         return directions;
     }
+
+    [System.Serializable]
+    public class JetpackFlameDisplayDictionary : SerializableDictionaryBase<FlameDirection, GameObject> { }
 }

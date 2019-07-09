@@ -40,13 +40,13 @@ public class CameraFollowPosition : MonoBehaviour {
     }
 
     private void AddAnchorPositionChangedEvent() {
-        _anchor.desiredPositionChanged.dynamicCalls += SetPosition;
+        _anchor.desiredPositionChanged.DynamicCalls += SetPosition;
     }
     #endregion
 
     #region OnDisable Methods
     private void RemoveAnchorPositionChangedEvent() {
-        _anchor.desiredPositionChanged.dynamicCalls -= SetPosition;
+        _anchor.desiredPositionChanged.DynamicCalls -= SetPosition;
     }
     #endregion
 
@@ -55,8 +55,8 @@ public class CameraFollowPosition : MonoBehaviour {
     }
 
     private void OnAnchorChanged(CameraAnchor newAnchor) {
-        _anchor.desiredPositionChanged.dynamicCalls -= SetPosition;
+        _anchor.desiredPositionChanged.DynamicCalls -= SetPosition;
         _anchor = newAnchor;
-        _anchor.desiredPositionChanged.dynamicCalls += SetPosition;
+        _anchor.desiredPositionChanged.DynamicCalls += SetPosition;
     }
 }

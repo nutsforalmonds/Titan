@@ -100,8 +100,8 @@ public class RopeCollidePoint : MonoBehaviour {
         var newPos = hit.point + _collideDirectionReflected * _reflectionDistance;
         var collidePoint = Instantiate(_collidePartGO, newPos, Quaternion.identity);
 
-        collidePoint.collided.dynamicCalls += OnCollided;
-        collidePoint.freed.dynamicCalls += OnFreed;
+        collidePoint.collided.DynamicCalls += OnCollided;
+        collidePoint.freed.DynamicCalls += OnFreed;
 
         var distance = Vector3.Distance(transform.position, collidePoint.transform.position);
         collidePoint.SetNext(_spring.connectedBody, _spring.maxDistance - distance);
